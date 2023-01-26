@@ -35,6 +35,7 @@
        (config :token))))))
 
 (def file (first *command-line-args*))
+;; (def file "/home/benj/repos/UnityMethodPatcher/.gitlab-ci.yml")
 
 (when-not (fs/exists? file)
   (binding [*out* *err*]
@@ -57,13 +58,13 @@
             json/decode)]
   (when-let [errors (get resp "errors")]
     (run! println errors))
-  (if-not (get "valid" resp)
+  (if-not (get resp "valid")
     (throw
-     (ex-info "Yml invalid." {:babashka/exit 1}))))
+     (ex-info "Yml invalid." {:babashka/exit 1}))
+    (println "yml valid.")))
 
 (comment
-  {"valid" false, "errors" ["retry max must be less than or equal to 2"], "warnings" [], "includes" [], "status" "invalid"})
-
-
-
-
+  {"valid" false, "errors" ["retry max must be less than or equal to 2"], "warnings" [], "includes" [], "status" "invalid"}
+  
+  ;; (def resp *1)
+  )
