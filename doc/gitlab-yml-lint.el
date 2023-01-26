@@ -6,6 +6,7 @@
   "~/repos/gitlab-ci-lint/")
 
 (defun gitlab-yml-lint ()
+  (interactive)
   (if-let (file (buffer-file-name))
       (let ((process-environment (append
                                   process-environment
