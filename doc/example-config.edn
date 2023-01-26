@@ -1,0 +1,10 @@
+{
+ ;; a list of list of program and args, that is passed to `shell/sh` and has as output your token
+ ;; they are tried in order
+ :token
+ [["printenv" "GITLAB_ACCESS_TOKEN"]
+  ;; ["pass" "gitlab-token"]
+  ;; not recommended
+  ;; ["echo" "token-token"]
+  ]
+ :gitlab-url "https://gitlab.com"}
