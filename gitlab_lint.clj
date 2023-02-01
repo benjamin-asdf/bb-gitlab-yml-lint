@@ -54,9 +54,9 @@
               :as :json
               :body (json/encode {:content (slurp file)})})
             :body
-            json/decode)]
-  (when-let [errors (get resp "errors")]
-    (run! println errors))
+            json/decode)
+      _ (when-let [errors (get resp "errors")]
+         (run! println errors))]
   (if-not (get resp "valid")
     (throw
      (ex-info "Yml invalid." {:babashka/exit 1}))
