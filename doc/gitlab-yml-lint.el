@@ -8,16 +8,6 @@
 (defun gitlab-yml-lint ()
   (interactive)
   (if-let (file (buffer-file-name))
-      (let ((process-environment (append
-                                  process-environment
-                                  (list
-                                   (concat
-                                    "GITLAB_LINT_CONFIG_FILE="
-                                    (expand-file-name
-                                     "config.edn"
-                                     gitlab-yml-lint-dir)))) ))
-        (async-shell-command
-         (concat gitlab-yml-lint-path " " (expand-file-name file))))
+      (async-shell-command
+       (concat "GITLAB_LINT_CONFIG_FILE=" (expand-file-name "config.edn" gitlab-yml-lint-dir) " " gitlab-yml-lint-path " " (expand-file-name file)))
     (user-error "Your buffer is not visiting a file.")))
-
-
