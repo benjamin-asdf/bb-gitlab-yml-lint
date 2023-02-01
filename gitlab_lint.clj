@@ -35,7 +35,6 @@
        (config :token))))))
 
 (def file (first *command-line-args*))
-;; (def file "/home/benj/repos/UnityMethodPatcher/.gitlab-ci.yml")
 
 (when-not (fs/exists? file)
   (binding [*out* *err*]
@@ -65,6 +64,6 @@
 
 (comment
   {"valid" false, "errors" ["retry max must be less than or equal to 2"], "warnings" [], "includes" [], "status" "invalid"}
-  
+  ;; (def file "/home/benj/repos/UnityMethodPatcher/.gitlab-ci.yml")
   ;; (def resp *1)
   )
