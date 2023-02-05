@@ -29,13 +29,13 @@ First step is to have a script to talk to gitlab so here.
 
 
 ** emacs command
-=doc/gitlab-yml-lint.el= already ends up doing it for me. When I desire
-a gitlab lint capability in my currently running emacs I eval that
-file and do =M-x gitlab-yml-lint= in gitlab yml files, good enough.
+When I desire a gitlab lint capability in my currently running emacs I eval =doc/gitlab-yml-lint.el= and do =M-x gitlab-yml-lint= in gitlab yml files, good enough.
 
 * goals
 
-** DONE emacs command
-** emacs command documentation
-** flycheck checker?
- 
+- emacs command [ok]
+- emacs command documentation [ok]
+- *flycheck* checker?
+Challenge: You don't always get a line and coll in the gitlab errors.
+Can mark the whole buffer, then.
+Or the first line.
